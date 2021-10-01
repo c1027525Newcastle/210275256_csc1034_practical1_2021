@@ -1,13 +1,13 @@
 from math import pi, sin, cos
 
 from direct.showbase.ShowBase import ShowBase
-from direc.task import Task
+from direct.task import Task
 from direct.actor.Actor import Actor
 
 class MyApp(ShowBase):
-
     def __init__(self):
         ShowBase.__init__(self)
+
 
         self.scene = self.loader.loadModel("models/environment")
 
@@ -15,6 +15,8 @@ class MyApp(ShowBase):
 
         self.scene.setScale(0.25, 0.25, 0.25)
         self.scene.setPos(-8, 42, 0)
+
+        self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
 
         self.pandaActor = Actor("models/panda-model",
                                 {"walk": "models/panda-walk4"})
@@ -31,7 +33,7 @@ class MyApp(ShowBase):
         return Task.cont
 
 app = MyApp()
-app.run
+app.run()
 
 
 
