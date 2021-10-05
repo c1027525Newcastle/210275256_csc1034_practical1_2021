@@ -16,7 +16,9 @@ class WalkingPanda(ShowBase):
         self.scene.setScale(0.25, 0.25, 0.25)
         self.scene.setPos(-8, 42, 0)
 
-        self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
+        ##rotatingcamera where to if
+        if no_rotate:
+            self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
 
         self.pandaActor = Actor("models/panda-model",
                                 {"walk": "models/panda-walk4"})
