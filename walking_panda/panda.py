@@ -6,7 +6,7 @@ from direct.actor.Actor import Actor
 
 
 class WalkingPanda(ShowBase):
-    def __init__(self, no_rotate=False):  ###
+    def __init__(self, no_rotate=False):
         ShowBase.__init__(self)
 
         self.scene = self.loader.loadModel("models/environment")
@@ -16,7 +16,6 @@ class WalkingPanda(ShowBase):
         self.scene.setScale(0.25, 0.25, 0.25)
         self.scene.setPos(-8, 42, 0)
 
-        ##rotatingcamera where to if
         if no_rotate:
             self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
 
