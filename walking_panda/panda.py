@@ -9,7 +9,7 @@ from direct.actor.Actor import Actor
 class WalkingPanda(ShowBase):
     #Adding the sound
     pygame.mixer.init()
-    sound = pygame.mixer.Sound("C:/Users/DeadGru/Downloads/30167__herbertboland__tribaldrums.wav")
+    sound = pygame.mixer.Sound("C:/Users/DeadGru/Downloads/Desiigner - Panda (Official Audio) (mp3cut.net).mp3")
     sound.play()
 
     def __init__(self, no_rotate=False, scale=1, environmentscale=1):  #scale=...
