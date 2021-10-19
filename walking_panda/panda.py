@@ -1,19 +1,25 @@
 from math import pi, sin, cos
 
+import pygame
+
 from direct.showbase.ShowBase import ShowBase
 from direct.task import Task
 from direct.actor.Actor import Actor
 
-
 class WalkingPanda(ShowBase):
-    def __init__(self, no_rotate=False, scale=1, environmentscale=1):###scale=...
+    #Adding the sound
+    pygame.mixer.init()
+    sound = pygame.mixer.Sound("C:/Users/DeadGru/Downloads/30167__herbertboland__tribaldrums.wav")
+    sound.play()
+
+    def __init__(self, no_rotate=False, scale=1, environmentscale=1):  #scale=...
         ShowBase.__init__(self)
 
         self.scene = self.loader.loadModel("models/environment")
 
         self.scene.reparentTo(self.render)
 
-        self.scene.setScale(0.25 * environmentscale, 0.25 * environmentscale, 0.25 * environmentscale)###*environmentscale
+        self.scene.setScale(0.25*environmentscale, 0.25*environmentscale, 0.25*environmentscale)  #*environmentscale
         self.scene.setPos(-8, 42, 0)
 
         if no_rotate:
