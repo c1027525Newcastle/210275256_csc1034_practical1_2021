@@ -22,7 +22,7 @@ class WalkingPanda(ShowBase):
         self.scene.setScale(0.25*environmentscale, 0.25*environmentscale, 0.25*environmentscale)  #*environmentscale
         self.scene.setPos(-8, 42, 0)
 
-        if no_rotate:
+        if no_rotate == True:
             self.taskMgr.add(self.spinCameraTask, "SpinCameraTask")
 
         self.pandaActor = Actor("models/panda-model",
