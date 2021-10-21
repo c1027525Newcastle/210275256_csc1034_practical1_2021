@@ -32,7 +32,7 @@ class WalkingPanda(ShowBase):
         self.pandaActor.reparentTo(self.render)
         self.pandaActor.loop("walk")
 
-        ###BabyPanda added to the back of MainPanda
+        #BabyPanda added to the back of MainPanda
         if pandaBaby == True:
             self.pandaActorBaby = Actor("models/panda-model",
                                     {"walk": "models/panda-walk4"})
