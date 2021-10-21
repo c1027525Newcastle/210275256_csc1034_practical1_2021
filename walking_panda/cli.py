@@ -8,10 +8,13 @@ def cli():
                         action="store_true")
 
     parser.add_argument("--scale", help="Change Scale of the Panda",
-                        type=float, required=False, default=1) ###python walking_panda.py --scale 7 (have to write this in terminal)
+                        type=float, required=False, default=1)
 
     parser.add_argument("--environmentscale", help="Change Scale of the Environment",
-                        type=float, required=False, default=1) ####
+                        type=float, required=False, default=1)
+
+    parser.add_argument("--pandaBaby", help="Add an extra baby panda on top of the main panda",
+                        action="store_true")
 
     args = parser.parse_args()
 

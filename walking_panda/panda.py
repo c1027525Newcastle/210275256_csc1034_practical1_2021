@@ -12,7 +12,7 @@ class WalkingPanda(ShowBase):
     sound = pygame.mixer.Sound("C:/Users/DeadGru/Downloads/Desiigner - Panda (Official Audio) (mp3cut.net).mp3")
     sound.play()
 
-    def __init__(self, no_rotate=False, scale=1, environmentscale=1):  #scale=...
+    def __init__(self, no_rotate=False, scale=1, environmentscale=1, pandaBaby=False):
         ShowBase.__init__(self)
 
         self.scene = self.loader.loadModel("models/environment")
@@ -29,8 +29,19 @@ class WalkingPanda(ShowBase):
                                 {"walk": "models/panda-walk4"})
         self.pandaActor.setScale(0.005 * scale, 0.005 * scale, 0.005 * scale)####*scale
         self.pandaActor.reparentTo(self.render)
-
         self.pandaActor.loop("walk")
+
+        ###BabyPanda added to the back of MainPanda
+        if pandaBaby == True:
+            self.pandaActorBaby = Actor("models/panda-model",
+                                    {"walk": "models/panda-walk4"})
+            self.pandaActorBaby.setScale(0.0035, 0.0035, 0.0035)
+            self.pandaActorBaby.reparentTo(self.render)
+            self.pandaActorBaby.setPos(0, 0, 2.3)
+
+
+
+
 
     def spinCameraTask(self, task):
         angleDegrees = task.time * 6.0
