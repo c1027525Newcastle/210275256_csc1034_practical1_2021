@@ -6,20 +6,21 @@ from direct.showbase.ShowBase import ShowBase
 from direct.task import Task
 from direct.actor.Actor import Actor
 
+
 class WalkingPanda(ShowBase):
     #Adding the sound
     pygame.mixer.init()
     sound = pygame.mixer.Sound("C:/Users/DeadGru/PycharmProjects/210275256_csc1034_practical1_2021/Desiigner - Panda (Official Audio) (mp3cut.net).mp3")
     sound.play()
 
-    def __init__(self, no_rotate=False, scale=1, environmentscale=1, pandaBaby=False):
+    def __init__(self, no_rotate=False, scale=1, environmentscale=1, pandaBaby=False, pandaArmy=False):
         ShowBase.__init__(self)
 
         self.scene = self.loader.loadModel("models/environment")
 
         self.scene.reparentTo(self.render)
 
-        self.scene.setScale(0.25*environmentscale, 0.25*environmentscale, 0.25*environmentscale)  #*environmentscale
+        self.scene.setScale(0.25*environmentscale, 0.25*environmentscale, 0.25*environmentscale)
         self.scene.setPos(-8, 42, 0)
 
         if no_rotate == True:
@@ -27,7 +28,7 @@ class WalkingPanda(ShowBase):
 
         self.pandaActor = Actor("models/panda-model",
                                 {"walk": "models/panda-walk4"})
-        self.pandaActor.setScale(0.005 * scale, 0.005 * scale, 0.005 * scale)####*scale
+        self.pandaActor.setScale(0.005 * scale, 0.005 * scale, 0.005 * scale)
         self.pandaActor.reparentTo(self.render)
         self.pandaActor.loop("walk")
 
@@ -39,9 +40,26 @@ class WalkingPanda(ShowBase):
             self.pandaActorBaby.reparentTo(self.render)
             self.pandaActorBaby.setPos(0, 0, 2.3)
 
+        if pandaArmy == True:
+            count = 3
+            Count = 3
+            for i in range(5):
+                self.pandaActorArmy = Actor("models/panda-model",
+                                            {"walk": "models/panda-walk4"})
+                self.pandaActorArmy.setScale(0.005, 0.005, 0.005)
+                self.pandaActorArmy.reparentTo(self.render)
+                self.pandaActorArmy.setPos(0+count, 0, 0)
+                self.pandaActorArmy.loop("walk")
+                count = count +2.7
 
-
-
+            for i in range(5):
+                self.pandaActorArmy = Actor("models/panda-model",
+                                            {"walk": "models/panda-walk4"})
+                self.pandaActorArmy.setScale(0.005, 0.005, 0.005)
+                self.pandaActorArmy.reparentTo(self.render)
+                self.pandaActorArmy.setPos(0-Count, 0, 0)
+                self.pandaActorArmy.loop("walk")
+                Count = Count +2.7
 
     def spinCameraTask(self, task):
         angleDegrees = task.time * 6.0
